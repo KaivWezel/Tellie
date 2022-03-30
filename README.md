@@ -4,12 +4,17 @@
 
 ## User story
 
-> Ik wil de scores of tijden van een sportwedstrijd doorgeven aan geïnteresseerden, die vervolgens kunnen reagereen.
+> I want to keep track of the time and score of a sportsgame to show interested people. They would also be able to comment on the game.
 
-## Core functionality
+## Functionality
 
-De basis moet het bijhouden van score zijn en deze ergens kunnen opslaan zodat het publiek de score ook kan zien.
-Hiervoor heb ik twee pagina's nodig.
+### Core functionality
 
-1. De bediening van het scorebord
-2. Het scorebord zelf; zichtbaar voor het publiek.
+The core of this app is to keep track of the score during a game and to show this to the audience so they can follow the gamescore live. For this app to work in its most basic form, 2 pages are needed:
+
+1. The interface of the scoreboard
+2. The scoreboard itself; visible to the crowd
+
+### Enhancements
+
+To enhance the experience
