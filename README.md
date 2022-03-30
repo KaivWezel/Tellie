@@ -17,4 +17,7 @@ The core of this app is to keep track of the score during a game and to show thi
 
 ### Enhancements
 
-To enhance the experience
+To enhance the experience I will be going to use javascript. This way I can add extra functionalities to the application. For example, I would like to add some real time commentsection/chatfunction.
+A function to not only track scores, but also time and other gamestats would be nice.
+
+## Sketches & wireflow
