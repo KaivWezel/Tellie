@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<header></header>
+		<main>
+			<h3><%= game.id %></h3>
+			<h2><%= game.teamA %></h2>
+			<h2><%= game.teamB %></h2>
+			<form action="/update-score" method="post">
+				<label for="scoreA">Score <%= game.teamA %></label>
+				<input type="number" name="scoreA" id="scoreA" />
+				<label for="scoreB">Score <%= game.teamB %></label>
+				<input type="number" name="scoreB" id="scoreB" />
+				<button>Update score</button>
+			</form>
+		</main>
+	</body>
+</html>
