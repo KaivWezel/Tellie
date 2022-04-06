@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Game overview</title>
+	</head>
+	<body>
+		<header>
+			<form action="/create-game" method="post">
+				<label for="teamA">Teamnaam team A</label>
+				<input type="text" name="teamA" id="teamA" />
+				<label for="teamB">Teamnaam team B</label>
+				<input type="text" name="teamB" id="teamB" />
+				<button>Maak wedstrijd</button>
+			</form>
+		</header>
+		<main>
+			<% if (list) { %>
+			<ul>
+				<% list.forEach(game => { %>
+				<li>
+					<a href="/score/<%= game.id%>"
+						><%= game.teamA %> - <%= game.teamB %></a
+					>
+				</li>
+				<% }) %>
+			</ul>
+			<% } %>
+		</main>
+	</body>
+</html>
