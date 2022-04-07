@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+	<%- include('./partials/head.ejs') %>
+	<body>
+		<%- include('./partials/nav.ejs') %>
+		<main>
+			<h2>Een wedstrijd aanmaken? Gebruik deze velden</h2>
+			<p>Vul de twee teamnamen in en klik op "Maak Wedstrijd"</p>
+			<form action="/create-game" method="post">
+				<div>
+					<label for="teamA">Teamnaam team A</label>
+					<input type="text" name="teamA" id="teamA" required />
+				</div>
+				<div>
+					<label for="teamB">Teamnaam team B</label>
+					<input type="text" name="teamB" id="teamB" required />
+				</div>
+				<button>Maak wedstrijd</button>
+			</form>
+		</main>
+	</body>
+</html>
