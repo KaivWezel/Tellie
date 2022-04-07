@@ -4,7 +4,7 @@
 	<body>
 		<%- include('./partials/nav.ejs') %>
 		<main class="score">
-			<h3>Game ID: <%= game.id %></h3>
+			<h3>Game ID: <%= game.id %> <span><%= game.date %></span></h3>
 			<h3><%= game.teamA %> - <%= game.teamB %></h3>
 			<div>
 				<h2><%= game.teamA %></h2>
