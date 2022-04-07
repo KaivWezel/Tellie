@@ -3,11 +3,35 @@
 	<%- include('./partials/head.ejs') %>
 	<body>
 		<%- include('./partials/nav.ejs') %>
-		<main>
-			<h2><%= game.teamA %></h2>
-			<h3><%= game.scoreA %></h3>
-			<h2><%= game.teamB %></h2>
-			<h3><%= game.scoreB %></h3>
+		<main class="score">
+			<div>
+				<h2><%= game.teamA %></h2>
+				<p class="score-display"><%= game.scoreA %></p>
+			</div>
+			<div>
+				<h2><%= game.teamB %></h2>
+				<p class="score-display"><%= game.scoreB %></p>
+			</div>
+			<form action="/comment/<%= game.id %>" method="POST" class="comment-form">
+				<h2>Reageer op deze wedstrijd</h2>
+				<label for="comment">Uw reactie</label>
+				<input
+					type="text"
+					maxlength="40"
+					name="comment"
+					id="comment"
+					placeholder="Typ hier"
+					autocomplete="off"
+				/>
+				<button>Plaats reactie</button>
+			</form>
+			<% if (game.comments) { %>
+			<ul class="comment-section">
+				<% for (const comment of game.comments) { %>
+				<li><%= comment %></li>
+				<% } %>
+			</ul>
+			<% } %>
 		</main>
 	</body>
 </html>
