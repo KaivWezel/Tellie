@@ -4,6 +4,8 @@
 	<body>
 		<%- include('./partials/nav.ejs') %>
 		<main class="score">
+			<h3>Game ID: <%= game.id %></h3>
+			<h3><%= game.teamA %> - <%= game.teamB %></h3>
 			<div>
 				<h2><%= game.teamA %></h2>
 				<p class="score-display"><%= game.scoreA %></p>
@@ -12,6 +14,7 @@
 				<h2><%= game.teamB %></h2>
 				<p class="score-display"><%= game.scoreB %></p>
 			</div>
+			<a href="/score/<%= game.id %>">Kijk of er een nieuwe score is</a>
 			<form action="/comment/<%= game.id %>" method="POST" class="comment-form">
 				<h2>Reageer op deze wedstrijd</h2>
 				<label for="comment">Uw reactie</label>
@@ -26,6 +29,7 @@
 				<button>Plaats reactie</button>
 			</form>
 			<% if (game.comments) { %>
+			<h3>Reacties van anderen</h3>
 			<ul class="comment-section">
 				<% for (const comment of game.comments) { %>
 				<li><%= comment %></li>

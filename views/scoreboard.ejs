@@ -33,6 +33,15 @@
 				</div>
 				<button>Update score</button>
 			</form>
+			<% if (game.comments) { %>
+			<div class="comment-section">
+				<% for (const comment of game.comments) { %>
+				<div class="comment">
+					<p><%= comment %></p>
+				</div>
+				<% } %>
+			</ul>
+			<% } %>
 		</main>
 	</body>
 </html>
