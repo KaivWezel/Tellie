@@ -19,7 +19,13 @@
 	font-style: normal;
 	font-display: swap;
 }
-
+@font-face {
+	font-family: "noto";
+	src: url("/assets/fonts/NotoSans-Medium.ttf");
+	font-weight: 600;
+	font-style: normal;
+	font-display: swap;
+}
 :root {
 	--gray-grad: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
 	--white-grad: linear-gradient(20deg, #fdfbfb 0%, #ebedee 100%);
@@ -102,8 +108,26 @@ ul li {
 	text-align: center;
 }
 
+li a {
+	text-align: right;
+	font-weight: 600;
+}
+
+li span {
+	display: inline-block;
+	background-color: var(--black);
+	color: var(--white);
+	padding: 0.5rem;
+	border-radius: 4px;
+	margin: 0.25rem;
+}
+
 form div {
-	margin: 1rem 0;
+	margin: 0rem 0 1rem;
+}
+
+form h2 {
+	margin-bottom: 0rem;
 }
 
 input {
@@ -127,10 +151,28 @@ button {
 	border-radius: 0.5rem;
 	transform-origin: bottom;
 	font-weight: normal;
+	font-size: 1rem;
 }
 
 button:hover,
 button:focus {
 	border: 2px solid var(--black);
 	transform: scale(1.1);
+}
+
+.score div {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: 50%;
+}
+
+.score-display {
+	margin-left: 2rem;
+	font-weight: 600;
+	font-size: 1.5rem;
+	color: var(--white);
+	background-color: var(--black);
+	padding: 0.5rem;
+	border-radius: 4px;
 }
