@@ -2,6 +2,8 @@
 
 ### Live scoreboard (progressively enhanced)
 
+Demo can be viewed here: [kaivanwezel.nl](http://www.kaivanwezel.nl:81)
+
 ## User story
 
 > I want to keep track of the time and score of a sportsgame to show interested people. They would also be able to comment on the game.
@@ -15,10 +17,16 @@ The core of this app is to keep track of the score during a game and to show thi
 1. The interface of the scoreboard
 2. The scoreboard itself; visible to the crowd
 
+### Functional/Usable
+
+To make this app more user-friendly, I used CSS to change the layout a bit and add some spacing so input fields and the corresponding labels can be easily read. Also some visually decoration can be used to make it a bit more attractive to look at.
+
 ### Enhancements
 
 To enhance the experience I will be going to use javascript. This way I can add extra functionalities to the application. For example, I would like to add some real time comments
 A function to not only track scores, but also time and other gamestats would be nice.
+
+Something simpler to enhance is the problem of live-updating the score and comment-section. Since with javascript, I can easily reload the page without needing the user to interact with anything, I can simulate a live-updating application. It wil make the app a bit more pleasurable to use.
 
 ## Sketches & wireflow
 
@@ -44,7 +52,15 @@ So in the future, a live chat function and timer would be nice. Dependant on the
 
 ## Tested Browsers
 
-- [ ] Google Chrome (Version 99.0.4844.84 (Official Build) (arm64))
-- [ ] Safari Version 15.4 (17613.1.17.1.6)
-- [ ] Safari iOs 15
-- [ ] Samsung Internet (Version 16.2.1.56)
+- [x] Google Chrome (Version 99.0.4844.84 (Official Build) (arm64))
+- [x] Safari Version 15.4 (17613.1.17.1.6)
+- [x] Safari iOs 15
+- [x] Samsung Internet (Version 16.2.1.56)
+
+## Test report
+
+So since I designed this app after defining its core-functionality, pretty much everything that should work works. Most of the functionality is handled serverside so the client only has to request or post information for the app to work. This is the way to make your app work on pretty much every machine. Only thing that is hard to do are live-sessions like chatting or a live timer.
+
+One thing that I discovered on Samsung Internet is that with darkmode one, it does something weird with the colors. This way, the buttons are hard te read.
+
+In every browser, the app works as it should though. I have not been able to test this app on a nintendo switch beforehand so that will be exciting.
