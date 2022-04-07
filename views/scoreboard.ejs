@@ -4,30 +4,33 @@
 	<body>
 		<%- include('./partials/nav.ejs') %>
 		<main>
-			<h3><%= game.id %></h3>
-			<h2><%= game.teamA %></h2>
-			<h2><%= game.teamB %></h2>
+			<h3>Game ID: <%= game.id %></h3>
+			<h3><%= game.teamA %> - <%= game.teamB %></h3>
 			<form action="/update-score/<%= game.id %>" method="post">
+				<h2><%= game.teamA %></h2>
 				<div>
-					<label for="scoreA">Score <%= game.teamA %></label>
+					<label for="scoreA">Score</label>
+					<span><%= game.scoreA %></span>
 					<input
 						type="number"
+						min="0"
 						name="scoreA"
 						id="scoreA"
 						value="<%= game.scoreA %>"
 					/>
 				</div>
-				<span><%= game.scoreA %></span>
+				<h2><%= game.teamB %></h2>
 				<div>
-					<label for="scoreB">Score <%= game.teamB %></label>
+					<label for="scoreB">Score</label>
+					<span><%= game.scoreB %></span>
 					<input
 						type="number"
+						min="0"
 						name="scoreB"
 						id="scoreB"
 						value="<%= game.scoreB %>"
 					/>
 				</div>
-				<span><%= game.scoreB %></span>
 				<button>Update score</button>
 			</form>
 		</main>
