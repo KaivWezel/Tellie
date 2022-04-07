@@ -40,13 +40,14 @@ app.get("/create-game", (req, res) => {
 app.get("/scoreboard/:id", async (req, res) => {
 	const id = req.params.id;
 	const game = await getGameById(id);
-	res.render("scoreboard", { game: game[0] });
+	res.render("scoreboard", { game: game });
 });
 
 app.get("/score/:id", async (req, res) => {
 	const id = req.params.id;
 	const game = await getGameById(id);
-	res.render("score", { game: game[0] });
+	console.log(games.list[0]);
+	res.render("score", { game: game });
 });
 
 app.get("/overview", async (req, res) => {
@@ -60,7 +61,8 @@ app.get("/overview", async (req, res) => {
 async function getGameById(id) {
 	const data = await fsPromises.readFile("./games.json", "utf8");
 	games = await JSON.parse(data);
-	return games.list.filter((game) => game.id === id);
+	const game = games.list.filter((game) => game.id === id);
+	return game[0];
 }
 
 function writeFile(fileDirectory, fileName, content) {
@@ -88,7 +90,7 @@ async function appendGame(content) {
 	}
 }
 
-app.post("/create-game", (req, res) => {
+app.post("/create-game", async (req, res) => {
 	id++;
 	const game = {
 		id: todayDate + id,
@@ -97,18 +99,31 @@ app.post("/create-game", (req, res) => {
 		scoreA: "0",
 		scoreB: "0",
 	};
-	appendGame(game);
-	res.redirect("/overview");
+	await appendGame(game);
+	res.redirect(`/scoreboard/${todayDate + id}`);
 });
 
 app.post("/update-score/:id", async (req, res) => {
 	const id = req.params.id;
 	const game = await getGameById(id);
 	const index = games.list.findIndex((game) => game.id === id);
-	const stats = game[0];
+	const stats = game;
 	stats.scoreA = req.body.scoreA;
 	stats.scoreB = req.body.scoreB;
 	games.list.splice(index, 1, stats);
 	writeFile("./", "games.json", games);
 	res.redirect(`/scoreboard/${id}`);
+});
+
+app.post("/comment/:id", async (req, res) => {
+	const id = req.params.id;
+	const game = await getGameById(id);
+	const index = games.list.findIndex((game) => game.id === id);
+	const comment = req.body.comment;
+	game.comments = game.comments || [];
+	game.comments.push(comment);
+	console.log(game);
+	games.list.splice(index, 1, game);
+	writeFile("./", "games.json", games);
+	res.redirect(`/score/${id}`);
 });
