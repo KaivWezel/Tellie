@@ -93,6 +93,7 @@ async function appendGame(content) {
 app.post("/create-game", async (req, res) => {
 	id++;
 	const game = {
+		date: Date.now(),
 		id: todayDate + id,
 		teamA: req.body.teamA,
 		teamB: req.body.teamB,
