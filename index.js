@@ -29,6 +29,14 @@ app.listen(port, () => {
 	console.log(`listening to port ${port}`);
 });
 
+app.get("/", (req, res) => {
+	res.render("index");
+});
+
+app.get("/create-game", (req, res) => {
+	res.render("create");
+});
+
 app.get("/scoreboard/:id", async (req, res) => {
 	const id = req.params.id;
 	const game = await getGameById(id);
@@ -70,7 +78,6 @@ async function appendGame(content) {
 			const data = await fsPromises.readFile("./games.json", "utf8");
 			games = await JSON.parse(data);
 			games.list.push(content);
-			console.log(games.list);
 			writeFile("./", "games.json", games);
 		} else {
 			games.list.push(content);
@@ -87,11 +94,21 @@ app.post("/create-game", (req, res) => {
 		id: todayDate + id,
 		teamA: req.body.teamA,
 		teamB: req.body.teamB,
-		scoreA: 0,
-		scoreB: 0,
+		scoreA: "0",
+		scoreB: "0",
 	};
 	appendGame(game);
 	res.redirect("/overview");
 });
 
-app.post("/update-score", (req, res) => {});
+app.post("/update-score/:id", async (req, res) => {
+	const id = req.params.id;
+	const game = await getGameById(id);
+	const index = games.list.findIndex((game) => game.id === id);
+	const stats = game[0];
+	stats.scoreA = req.body.scoreA;
+	stats.scoreB = req.body.scoreB;
+	games.list.splice(index, 1, stats);
+	writeFile("./", "games.json", games);
+	res.redirect(`/scoreboard/${id}`);
+});
