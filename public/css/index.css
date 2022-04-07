@@ -86,6 +86,7 @@ main a {
 	display: inline-block;
 	text-decoration: none;
 	padding: 0.75rem 1rem;
+	margin: 1rem 0;
 	margin-right: 1rem;
 	background-image: var(--white-grad);
 	background-size: 200%;
@@ -165,6 +166,7 @@ button:focus {
 	align-items: center;
 	justify-content: space-between;
 	width: 50%;
+	max-width: 250px;
 }
 
 .score-display {
