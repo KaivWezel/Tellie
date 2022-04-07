@@ -1,13 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Gamescore</title>
-	</head>
+	<%- include('./partials/head.ejs') %>
 	<body>
-		<header></header>
+		<%- include('./partials/nav.ejs') %>
 		<main>
 			<h2><%= game.teamA %></h2>
 			<h3><%= game.scoreA %></h3>

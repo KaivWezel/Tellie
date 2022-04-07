@@ -1,22 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Document</title>
-	</head>
+	<%- include('./partials/head.ejs') %>
 	<body>
-		<header></header>
+		<%- include('./partials/nav.ejs') %>
 		<main>
 			<h3><%= game.id %></h3>
 			<h2><%= game.teamA %></h2>
 			<h2><%= game.teamB %></h2>
-			<form action="/update-score" method="post">
-				<label for="scoreA">Score <%= game.teamA %></label>
-				<input type="number" name="scoreA" id="scoreA" />
-				<label for="scoreB">Score <%= game.teamB %></label>
-				<input type="number" name="scoreB" id="scoreB" />
+			<form action="/update-score/<%= game.id %>" method="post">
+				<div>
+					<label for="scoreA">Score <%= game.teamA %></label>
+					<input
+						type="number"
+						name="scoreA"
+						id="scoreA"
+						value="<%= game.scoreA %>"
+					/>
+				</div>
+				<span><%= game.scoreA %></span>
+				<div>
+					<label for="scoreB">Score <%= game.teamB %></label>
+					<input
+						type="number"
+						name="scoreB"
+						id="scoreB"
+						value="<%= game.scoreB %>"
+					/>
+				</div>
+				<span><%= game.scoreB %></span>
 				<button>Update score</button>
 			</form>
 		</main>
