@@ -1,0 +1,136 @@
+@font-face {
+	font-family: "noto";
+	src: url("/assets/fonts/NotoSans-Light.ttf");
+	font-weight: normal;
+	font-style: normal;
+	font-display: swap;
+}
+@font-face {
+	font-family: "noto";
+	src: url("/assets/fonts/NotoSans-Bold.ttf");
+	font-weight: bold;
+	font-style: normal;
+	font-display: swap;
+}
+@font-face {
+	font-family: "noto";
+	src: url("/assets/fonts/NotoSans-Thin.ttf");
+	font-weight: 200;
+	font-style: normal;
+	font-display: swap;
+}
+
+:root {
+	--gray-grad: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
+	--white-grad: linear-gradient(20deg, #fdfbfb 0%, #ebedee 100%);
+	--black: rgb(95, 95, 95);
+	--black-dark: rgb(40, 40, 40);
+	--white: rgb(230, 230, 230);
+}
+
+html,
+* {
+	box-sizing: border-box;
+	font-family: "noto", sans-serif;
+}
+
+body {
+	background-image: var(--gray-grad);
+	background-repeat: no-repeat;
+	min-height: 100vh;
+	margin: 0;
+}
+
+main {
+	margin: 1rem;
+}
+
+h1,
+h2,
+h3,
+h4 {
+	color: var(--black);
+}
+
+p,
+a {
+	color: var(--black-dark);
+}
+
+nav {
+	padding: 1rem 0;
+	width: 100%;
+	background-image: var(--white-grad);
+	text-align: right;
+}
+
+nav a {
+	padding: 1rem;
+	text-decoration: none;
+	height: 100%;
+}
+
+nav a:hover,
+nav a:focus {
+	background-color: rgb(95, 95, 95);
+	color: var(--white);
+}
+
+main a {
+	display: inline-block;
+	text-decoration: none;
+	padding: 0.75rem 1rem;
+	margin-right: 1rem;
+	background-image: var(--white-grad);
+	background-size: 200%;
+	background-position: bottom left;
+	border-radius: 0.5rem;
+}
+
+main a:hover,
+main a:focus {
+	transform: scale(1.1);
+}
+
+ul {
+	list-style-type: none;
+	padding: 0;
+}
+
+ul li {
+	margin: 1rem 0;
+	text-align: center;
+}
+
+form div {
+	margin: 1rem 0;
+}
+
+input {
+	margin: 0.5rem 1.5rem;
+	padding: 0.25rem 0.5rem;
+	border: none;
+	border-radius: 0.5rem;
+}
+
+input:focus {
+	transform: scale(1.1);
+	border: 2px solid var(--black);
+}
+
+button {
+	background-image: var(--white-grad);
+	border: none;
+	cursor: pointer;
+	margin: 1rem 0;
+	padding: 0.75rem 1.25rem;
+	border-radius: 0.5rem;
+	transform-origin: bottom;
+	font-weight: normal;
+}
+
+button:hover,
+button:focus {
+	border: 2px solid var(--black);
+	transform: scale(1.1);
+}
